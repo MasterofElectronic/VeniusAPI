@@ -1,0 +1,15 @@
+node_modules/
+dist/
+
+#Logs
+.DS_Store
+
+logs/
+
+.env
+
+.yml
+
+
+.sql
+
