@@ -19,4 +19,3 @@ export interface Rango {
       public aforo: number,
     ) {}
   }
-  

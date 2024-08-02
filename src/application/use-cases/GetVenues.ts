@@ -1,5 +1,5 @@
 import { Venue } from "../../domain/entities/Venue";
-import { VenueRepository } from "../../domain/repositories/Venue.Repositoy";
+import { VenueRepository } from "../../domain/repositories/VenueRepository";
 
 
 export class GetVenues{

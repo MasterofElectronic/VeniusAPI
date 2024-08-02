@@ -2,6 +2,7 @@ import { Repository } from "typeorm";
 import { Venue } from "../../../domain/entities/Venue";
 import { VenueRepository } from "../../../domain/repositories/VenueRepository";
 import { VenueModel } from "../models/VenueModel";
+import dataSource from "../../../ormconfig";
 
 
 
@@ -9,7 +10,11 @@ import { VenueModel } from "../models/VenueModel";
 
 export class TypeORMVenueRepository implements VenueRepository {
 
-    constructor(private repository: Repository<VenueModel>){}
+    
+
+    constructor(private repository: Repository<VenueModel>){
+        this.repository = dataSource.getRepository(VenueModel);
+    }
 
     async create(venue: Venue): Promise<Venue> {
         const venueModel = this.repository.create(venue);
@@ -23,10 +28,10 @@ export class TypeORMVenueRepository implements VenueRepository {
             savedVenue.rango,
             savedVenue.tamano,
             savedVenue.imagen,
-            savedVenue.nombre,
+            savedVenue.venue,
             savedVenue.ciudad,
             savedVenue.departamento,
-            savedVenue.inaugura,
+            savedVenue.inauguracion,
             savedVenue.aforo
         );
     }
@@ -52,15 +57,15 @@ export class TypeORMVenueRepository implements VenueRepository {
             vm.rango,
             vm.tamano,
             vm.imagen,
-            vm.nombre,
+            vm.venue,
             vm.ciudad,
             vm.departamento,
-            vm.inaugura,
+            vm.inauguracion,
             vm.aforo,
         ));
     
     }
-    async delete(venue: Venue): Promise<void> {
+    async delete(id: number): Promise<void> {
         await this.repository.delete(id);
     }
     async update(id: number, venue: Venue): Promise<Venue> {
@@ -77,10 +82,10 @@ export class TypeORMVenueRepository implements VenueRepository {
             updateVenue.rango,
             updateVenue.tamano,
             updateVenue.imagen,
-            updateVenue.nombre,
+            updateVenue.venue,
             updateVenue.ciudad,
             updateVenue.departamento,
-            updateVenue.inaugura,
+            updateVenue.inauguracion,
             updateVenue.aforo,
         );
     }

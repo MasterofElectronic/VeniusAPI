@@ -1,4 +1,4 @@
-import { VenueRepository } from "../../domain/repositories/Venue.Repositoy";
+import { VenueRepository } from "../../domain/repositories/VenueRepository";
 
 
 

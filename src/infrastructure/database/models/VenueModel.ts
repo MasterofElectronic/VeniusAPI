@@ -1,42 +1,44 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Venue } from '../../../domain/entities/Venue';
 
 
-@Entity()
-export class VenueModel {
+
+@Entity('venues')
+export class VenueModel extends Venue {
     @PrimaryGeneratedColumn()
-    id: number
+    id!: number;
 
     @Column()
-    techo: string
+    techo!: string;
 
     @Column()
-    tipo: string
+    tipo!: string;
 
     @Column()
-    deporte: string
+    deporte!: string;
 
-    @Column('json')
-    rango: {min: number; max: number}
+    @Column('jsonb')
+    rango!: { min: number; max: number; };
 
-    @Column('json')
-    tamano: {min: number; max: number}
-
-    @Column()
-    imagen: string
+    @Column('jsonb')
+    tamano!: { min: number; max: number; };
 
     @Column()
-    venue: string
+    imagen!: string;
 
     @Column()
-    ciudad: string
+    venue!: string;
 
     @Column()
-    departamento: string
+    ciudad!: string;
 
     @Column()
-    inauguracion: number
+    departamento!: string;
 
     @Column()
-    aforo: number
+    inauguracion!: number;
+
+    @Column()
+    aforo!: number;
 
 }
